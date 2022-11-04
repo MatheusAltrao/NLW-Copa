@@ -187,26 +187,30 @@ header img {
   transition: all 0.3s ease;
 }
 
-
-
-
-
-#yellow {
-  background-color: #F7DD43;
-}
-
 #yellow.clicked,
 #green.clicked,
 #blue.clicked {
   transform: translateY(-20px);
 }
 
+
+#yellow {
+  background-color: #F7DD43;
+  animation: fromBottomYellow 0.5s ease-in-out backwards;
+  animation-delay: 0.2s;
+}
+
+
 #green {
   background-color: #047c3f;
+  animation: fromBottom 0.5s ease-in-out backwards;
+  animation-delay: 0.4s;
 }
 
 #blue {
   background-color: #338af3;
+  animation: fromBottom 0.5s ease-in-out backwards;
+  animation-delay: 0.6s;
 }
 
 /* animation */
@@ -224,11 +228,52 @@ header img {
 }
 
 
+@keyframes fromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
 
-@media (min-width:700px) {
+  50% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fromBottomYellow {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+
+  50% {
+    opacity: 1;
+    transform: translateY(-30px);
+  }
+}
+
+
+
+@media (min-width:800px) {
+  body {
+    overflow: hidden;
+  }
+
+  header {
+    padding-top: 1rem;
+  }
+
   #cards {
     flex-direction: row;
     max-width: 670px;
     flex-wrap: wrap;
   }
+
+
 }
